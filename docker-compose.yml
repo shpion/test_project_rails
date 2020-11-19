@@ -1,0 +1,26 @@
+version: '3'
+services:
+  api:
+    container_name: test_rails
+    command: rails s -b 0.0.0.0
+    build: .
+    env_file: .env
+    volumes:
+      - .:/app:rw
+    tty: true
+    stdin_open: true
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+  db:
+    container_name: test_rails_db
+    image: postgres:10-alpine
+    env_file: .env
+    ports:
+      - 5439:5432
+    volumes:
+      - data-postgres:/var/lib/postgresql/data
+volumes:
+  data-postgres:
+    driver: local
