@@ -11,6 +11,16 @@ class FilmsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get new" do
+    get films_new_url
+    assert_response :success
+  end
+
+  test "should get edit" do
+    get films_edit_url
+    assert_response :success
+  end
+
   test "should get show" do
     get films_show_url
     assert_response :success

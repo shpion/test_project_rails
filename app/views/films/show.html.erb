@@ -1,2 +1,12 @@
-<h1>Films#show</h1>
-<p>Find me in app/views/films/show.html.erb</p>
+<h1><%= @film.title %></h1>
+<p><%= @film.description %></p>
+<br>
+<h3>Comments</h3>
+<% @film.comments.each do |comment| %>
+  <ul>
+    <li>
+      <b><%= comment.user.name %></b> <i><%= comment.created_at %></i>
+      <p><%= comment.comment %></p>
+    </li>
+  </ul>
+<% end %>
