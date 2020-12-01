@@ -4,4 +4,5 @@ class Film < ApplicationRecord
 
   validates_associated :categories
   validates :title, :description, presence: true
+  validates_presence_of :categories, :message => "not found"
 end

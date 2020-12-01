@@ -1,6 +1,9 @@
+<p id="notice"><%= notice %></p>
 <h1><%= @category.name %></h1>
 <% @category.films.each do |film| %>
   <ul>
     <li><%= link_to film.title, category_film_path(@category, film) %></li>
   </ul>
 <% end %>
+
+<%= link_to 'Add New Film', new_category_film_path %>
