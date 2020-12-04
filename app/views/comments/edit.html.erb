@@ -1,0 +1,23 @@
+<h1>Edit comment to film "<%=@comment.film.title %>" from <%=@comment.user.name %></h1>
+<%= form_for @comment, url: category_film_comment_path do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <ul>
+        <% @comment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "Update Comment" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', category_film_path(@category, @comment.film)%>

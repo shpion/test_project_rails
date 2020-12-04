@@ -1,9 +1,17 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @category.name %></h1>
-<% @category.films.each do |film| %>
-  <ul>
-    <li><%= link_to film.title, category_film_path(@category, film) %></li>
-  </ul>
-<% end %>
-
-<%= link_to 'Add New Film', new_category_film_path %>
+<i><%= link_to "Categories", categories_path %> >> <%= @category.name %></i>
+<br>
+<br>
+<table>
+  <% @category.films.each do |film| %>
+    <tr>
+      <td><%= link_to film.title, category_film_path(@category, film) %></td>
+      <td><%= link_to 'Edit', edit_category_film_path(@category, film)%></td>
+      <td>
+        <%= button_to "Delete", category_film_path(@category, film), method: :delete, data: {turbolinks: false, confirm: "Are you sure?"} %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<br>

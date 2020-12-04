@@ -1428,6 +1428,7 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" scope="PROVIDED" name="annotate (v3.1.1, Remote: ruby-2.7.2-p137) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.1.4, Remote: ruby-2.7.2-p137) [gem]" level="application" />
   </component>
   <component name="RModuleSettingsStorage">

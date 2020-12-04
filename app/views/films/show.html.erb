@@ -1,12 +1,23 @@
+<p id="notice"><%= notice %></p>
 <h1><%= @film.title %></h1>
+<i><%= link_to "Categories", categories_path %> >> <%= link_to @category.name, category_films_path(@category) %> >> <%= @film.title %></i>
+<br>
 <p><%= @film.description %></p>
 <br>
 <h3>Comments</h3>
-<% @film.comments.each do |comment| %>
-  <ul>
-    <li>
-      <b><%= comment.user.name %></b> <i><%= comment.created_at %></i>
-      <p><%= comment.comment %></p>
-    </li>
-  </ul>
-<% end %>
+<table>
+  <% @film.comments.each do |comment| %>
+    <tr>
+      <td>
+        <b><%= comment.user.name %></b> <i><%= comment.created_at %></i>
+        <p><%= comment.comment %></p>
+      </td>
+      <td><%= link_to 'Edit', edit_category_film_comment_path(@category, @film, comment)%></td>
+      <td>
+        <%= button_to "Delete", category_film_comment_path(@category, @film, comment), method: :delete, data: {turbolinks: false, confirm: "Are you sure?"} %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Add Comment', new_category_film_comment_path(@category, @film) %>

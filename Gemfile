@@ -41,6 +41,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "paranoia", "~> 2.2"
+  gem 'annotate'
 end
 
 group :test do

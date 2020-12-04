@@ -1,5 +1,5 @@
 <h1>Add new film</h1>
-<%= form_for @film, url: category_films_path do |f| %>
+<%= form_for @film, url: films_path do |f| %>
   <% if @film.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@film.errors.count, "error") %> prohibited this film from being saved:</h2>
@@ -19,7 +19,7 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label "Categories" %><br />
+    <%= label_tag :categories, "Categories" %><br />
     <%= text_field_tag :categories, nil, placeholder: "Names separated by commas" %>
   </div>
   <br>
@@ -28,4 +28,4 @@
   </div>
 <% end %>
 
-<%= link_to 'Back', category_films_path%>
+<%= link_to 'Back', categories_path%>
